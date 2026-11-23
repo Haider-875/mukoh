@@ -193,9 +193,11 @@
                       {{ $inq->created_at->diffForHumans() }}
                     </td>
                     <td class="text-end">
-                      <a href="{{ route('admin.inquiries.show', $inq) }}" class="btn btn-outline-secondary btn-sm py-0 px-2" style="height:26px; font-size:11px;" title="Review Inquiry">
-                        <i class="fa-regular fa-eye"></i>
-                      </a>
+                      <div class="d-inline-flex align-items-center gap-1.5">
+                        <a href="{{ route('admin.inquiries.show', $inq) }}" class="btn btn-action btn-action-view" title="Review Inquiry">
+                          <i class="fa-regular fa-eye"></i>
+                        </a>
+                      </div>
                     </td>
                   </tr>
                 @empty
@@ -259,9 +261,11 @@
                       <span class="status-pill status-{{ $appt->status }}">{{ $appt->status }}</span>
                     </td>
                     <td class="text-end">
-                      <a href="{{ route('admin.appointments.show', $appt) }}" class="btn btn-outline-secondary btn-sm py-0 px-2" style="height:26px; font-size:11px;" title="View Booking">
-                        <i class="fa-regular fa-eye"></i>
-                      </a>
+                      <div class="d-inline-flex align-items-center gap-1.5">
+                        <a href="{{ route('admin.appointments.show', $appt) }}" class="btn btn-action btn-action-view" title="View Booking">
+                          <i class="fa-regular fa-eye"></i>
+                        </a>
+                      </div>
                     </td>
                   </tr>
                 @empty
