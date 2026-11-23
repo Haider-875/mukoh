@@ -118,7 +118,7 @@
 
       <div class="mb-3">
         <label for="password" class="form-label text-secondary small fw-bold">PASSWORD</label>
-        <input type="password" id="password" name="password" class="form-control" value="admin123" required/>
+        <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required/>
       </div>
 
       <div class="d-flex align-items-center justify-content-between mb-4">

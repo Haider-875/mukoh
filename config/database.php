@@ -35,7 +35,7 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => (env('DB_CONNECTION') === 'sqlite' && str_ends_with(env('DB_DATABASE', ''), '.sqlite'))
+            'database' => (env('DB_CONNECTION') === 'sqlite' && str_ends_with((string) env('DB_DATABASE', ''), '.sqlite') && file_exists((string) env('DB_DATABASE')))
                 ? env('DB_DATABASE')
                 : database_path('database.sqlite'),
             'prefix' => '',
