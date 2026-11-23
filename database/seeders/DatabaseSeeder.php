@@ -395,45 +395,73 @@ class DatabaseSeeder extends Seeder
         // 6. Testimonials
         $testimonials = [
             [
-                'author_name' => 'JAMES M.',
+                'author_name' => 'Marcus Sterling',
                 'rating' => 5,
-                'content' => 'Fast service, fair pricing and a team that gets you back on the road quickly.',
+                'vehicle_or_service' => '2021 Ford F-150 • Michelin Defender LTX M/S',
+                'content' => 'Needed four all-season tires before a road trip to Pennsylvania. The crew at Mukoh got my truck on the lift right away, helped me pick the right load rating, mounted and high-speed balanced them in under 45 minutes. Super smooth ride with zero vibration on I-95.',
                 'sort_order' => 1,
             ],
             [
-                'author_name' => 'SARAH K.',
+                'author_name' => 'Elena Rostova',
                 'rating' => 5,
-                'content' => 'Professional, knowledgeable service and practical help choosing the right tire.',
+                'vehicle_or_service' => '2023 Tesla Model Y • Hankook iON evo EV Tires',
+                'content' => 'Finding a local shop that knows how to lift a Tesla with proper pucks and handles acoustic foam tires properly is rare. Mukoh had the exact EV spec tires in stock and did a laser alignment. Exceptionally clean shop and honest pricing.',
                 'sort_order' => 2,
             ],
             [
-                'author_name' => 'MICHAEL R.',
+                'author_name' => 'Darnell Washington',
                 'rating' => 5,
-                'content' => 'A solid tire selection with straightforward advice for the budget I had in mind.',
+                'vehicle_or_service' => '2019 Chevy Silverado 1500 • Aluminum Rim Bead Reseal',
+                'content' => 'Had a slow leak on my front tire for three weeks that another chain shop failed to fix twice. Mukoh took the tire off, cleaned and polished the corroded aluminum bead surface, resealed it, and dunk-tested it. Solved permanently for a fair price.',
                 'sort_order' => 3,
             ],
             [
-                'author_name' => 'DAVID L.',
+                'author_name' => 'Sarah Jenkins',
                 'rating' => 5,
-                'content' => 'The service was quick, clear and easy from the first call through installation.',
+                'vehicle_or_service' => '2022 Honda CR-V AWD • Continental TrueContact Tour',
+                'content' => 'Hit a bad pothole on Route 40 during rush hour and tore a sidewall. I called Mukoh in a panic; they held my size, took me in without an appointment, and had me back on the road in 30 minutes. Transparent pricing with no hidden disposal fees.',
                 'sort_order' => 4,
             ],
             [
-                'author_name' => 'MARIA T.',
+                'author_name' => 'Brian MacIntyre',
                 'rating' => 5,
-                'content' => 'They explained the options clearly and helped me choose a tire that fit my budget.',
+                'vehicle_or_service' => '2020 BMW 330i xDrive • Run-Flat Replacement & Road Force Balance',
+                'content' => 'I am very picky about my 19-inch M-Sport wheels. Not a single clamp mark or scratch. Their technician torqued every lug nut by hand with a calibrated torque wrench right in front of me instead of an impact gun. Top tier workmanship.',
                 'sort_order' => 5,
             ],
             [
-                'author_name' => 'KEVIN B.',
+                'author_name' => 'Maria Gonzalez',
                 'rating' => 5,
-                'content' => 'Clean work, good communication and a smooth experience from start to finish.',
+                'vehicle_or_service' => '2024 Toyota RAV4 Hybrid • Tire Rotation & TPMS Sensor Calibration',
+                'content' => 'Quick, friendly, and completely honest. They reset my TPMS sensors without charging bogus diagnostic fees and handed me a clear tread depth report across all four corners. Mukoh has earned all of our family’s vehicle business.',
                 'sort_order' => 6,
+            ],
+            [
+                'author_name' => 'Keith Vance',
+                'rating' => 5,
+                'vehicle_or_service' => 'Commercial Fleet / Ram ProMaster • Heavy Duty Commercial Tires',
+                'content' => 'We operate 6 service vans in the Baltimore area and downtime costs us thousands. Mukoh manages our tire fleet quickly, maintains proper commercial load range E stock, and keeps turnaround under an hour. Invaluable business partner.',
+                'sort_order' => 7,
+            ],
+            [
+                'author_name' => 'Aisha Robinson',
+                'rating' => 5,
+                'vehicle_or_service' => '2021 Subaru Outback • Goodyear Assurance WeatherReady',
+                'content' => 'Honest advice with zero upselling. When I asked about replacing all four tires, the tech honestly pointed out my rears still had 60% tread and only recommended replacing the fronts plus a rotation. That honesty is why I tell everyone to come here.',
+                'sort_order' => 8,
+            ],
+            [
+                'author_name' => 'David Miller',
+                'rating' => 5,
+                'vehicle_or_service' => '2018 Jeep Grand Cherokee • Falken Wildpeak A/T3W',
+                'content' => 'Picked up a set of all-terrains for light trail work and winter snow. Competitive pricing matched online retailers with the bonus of instant professional local mounting and road force balancing. Rides buttery smooth on both highway and gravel.',
+                'sort_order' => 9,
             ],
         ];
 
+        Testimonial::truncate();
         foreach ($testimonials as $t) {
-            Testimonial::updateOrCreate(['author_name' => $t['author_name']], array_merge($t, ['is_active' => true]));
+            Testimonial::create(array_merge($t, ['is_active' => true]));
         }
 
         // 7. Website Settings

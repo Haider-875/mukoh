@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         $testimonials = Testimonial::where('is_active', true)
             ->orderBy('sort_order')
-            ->take(6)
+            ->take(12)
             ->get();
 
         $settings = WebsiteSetting::pluck('value', 'key')->all();
