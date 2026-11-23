@@ -74,7 +74,7 @@
                             <small class="text-secondary">{{ $product->brand }} &bull; {{ $product->condition == 'new' ? 'Brand New' : 'Certified Used' }}</small>
                         </td>
                         <td>
-                            <span class="badge bg-dark border border-secondary text-secondary">{{ $product->category->name ?? ucfirst($product->category_slug ?? 'General') }}</span>
+                            <span class="badge bg-dark border border-secondary text-white">{{ $product->category->name ?? ucfirst($product->category_slug ?? 'General') }}</span>
                         </td>
                         <td><code>{{ $product->size ?? 'N/A' }}</code></td>
                         <td>

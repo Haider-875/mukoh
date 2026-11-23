@@ -121,7 +121,7 @@
           <strong>Monday - Sunday</strong>
           <span>{{ $settings['business_hours'] ?? '8:00 AM - 7:30 PM' }}</span>
         </div>
-        <a class="dark-btn red-btn" href="{{ route('contact') }}">Schedule Service ↗</a>
+        <a class="dark-btn red-btn" href="{{ route('contact') }}">Schedule Service</a>
       </div>
     </div>
   </section>

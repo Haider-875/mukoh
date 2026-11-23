@@ -2,15 +2,16 @@
 
 @section('title', 'Admin Profile & Security Settings')
 @section('header-title', 'Security & Profile')
-@section('header-subtitle', 'Manage your administrator account credentials')
+@section('header-subtitle', 'Manage administrator credentials and account security')
 
 @section('content')
 <div class="row g-4">
     <!-- Profile Info Form -->
     <div class="col-lg-6">
-        <div class="card">
-            <div class="card-header">
-                <i class="bi bi-person-circle me-2 text-primary"></i> Profile Information
+        <div class="card h-100 mb-0">
+            <div class="card-header d-flex align-items-center gap-2">
+                <i class="fa-regular fa-user text-danger"></i>
+                <span>Profile Information</span>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.settings.profile') }}" method="POST">
@@ -31,10 +32,12 @@
 
                     <div class="mb-3">
                         <label class="form-label">Role</label>
-                        <input type="text" class="form-control" value="{{ ucfirst($user->role ?? 'Administrator') }}" disabled readonly>
+                        <input type="text" class="form-control" value="{{ ucfirst($user->role ?? 'Administrator') }}" disabled readonly style="background:#111 !important; color:#888 !important;">
                     </div>
 
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg me-1"></i> Update Profile</button>
+                    <div class="pt-2">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i> Save Profile</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -42,9 +45,13 @@
 
     <!-- Password Change Form -->
     <div class="col-lg-6">
-        <div class="card">
-            <div class="card-header">
-                <i class="bi bi-key me-2 text-primary"></i> Change Admin Password
+        <div class="card h-100 mb-0" id="passwordCard" style="transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-key text-warning"></i>
+                    <span>Change Admin Password</span>
+                </div>
+                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25" style="font-size:10px;">Security</span>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.settings.password') }}" method="POST">
@@ -63,15 +70,34 @@
                         @error('password')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-3">
                         <label class="form-label">Confirm New Password <span class="text-danger">*</span></label>
                         <input type="password" name="password_confirmation" class="form-control" required placeholder="Repeat new password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-shield-lock me-1"></i> Update Password</button>
+                    <div class="pt-2">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-shield-halved"></i> Update Password</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash === '#passwordCard') {
+      const card = document.getElementById('passwordCard');
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.style.borderColor = 'var(--admin-accent)';
+        card.style.boxShadow = '0 0 20px rgba(239, 59, 45, 0.35)';
+        const input = card.querySelector('input[name="current_password"]');
+        if (input) input.focus();
+      }
+    }
+  });
+</script>
+@endpush

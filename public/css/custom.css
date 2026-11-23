@@ -495,11 +495,31 @@
 }
 
 /* 4. Service Detail Cards (Services Page) */
+.service-detail.compact-service {
+  grid-template-columns: minmax(0, 1fr) 180px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.service-detail-side {
+  padding: 24px 20px !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+}
+
 .service-detail-side .dark-btn {
   width: 100% !important;
-  min-width: 150px !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   min-height: 44px !important;
-  padding: 0 24px !important;
+  height: 44px !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -507,7 +527,29 @@
   font-size: 11px !important;
   font-weight: 800 !important;
   letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
   border-radius: 3px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  background: var(--red, #ef3b2d) !important;
+  color: #111111 !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+.service-detail-side .dark-btn:hover {
+  background: #ff4a3b !important;
+  color: #000000 !important;
+  transform: translateY(-2px) !important;
+}
+
+.hours-panel .dark-btn {
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 24px !important;
+  box-sizing: border-box !important;
 }
 
 /* 5. Mobile Responsiveness */
@@ -532,5 +574,36 @@
     height: 36px !important;
     padding: 0 14px !important;
     font-size: 9px !important;
+  }
+  .service-detail.compact-service {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .service-detail-side {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px 20px !important;
+    gap: 16px !important;
+  }
+  .service-detail-side .dark-btn {
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: 180px !important;
+    flex-shrink: 0 !important;
+    padding: 0 18px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-detail-side {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .service-detail-side .dark-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 }
