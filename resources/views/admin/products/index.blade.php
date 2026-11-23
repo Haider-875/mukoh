@@ -111,12 +111,12 @@
                             </form>
                         </td>
                         <td class="text-end">
-                            <div class="btn-group btn-group-sm">
-                                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-outline-secondary" title="Edit"><i class="bi bi-pencil"></i></a>
-                                <form action="{{ route('admin.products.destroy', $product) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this tire product?');" class="d-inline">
+                            <div class="d-inline-flex align-items-center gap-2">
+                                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-action btn-action-edit" title="Edit Tire Product"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <form action="{{ route('admin.products.destroy', $product) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this tire product?');" class="d-inline m-0">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger" title="Delete"><i class="bi bi-trash"></i></button>
+                                    <button type="submit" class="btn btn-action btn-action-delete" title="Delete Product"><i class="fa-regular fa-trash-can"></i></button>
                                 </form>
                             </div>
                         </td>

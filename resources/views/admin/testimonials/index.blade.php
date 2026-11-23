@@ -54,12 +54,12 @@
                             </form>
                         </td>
                         <td class="text-end">
-                            <div class="btn-group btn-group-sm">
-                                <a href="{{ route('admin.testimonials.edit', $t) }}" class="btn btn-outline-secondary" title="Edit"><i class="bi bi-pencil"></i></a>
-                                <form action="{{ route('admin.testimonials.destroy', $t) }}" method="POST" onsubmit="return confirm('Delete this testimonial?');" class="d-inline">
+                            <div class="d-inline-flex align-items-center gap-2">
+                                <a href="{{ route('admin.testimonials.edit', $t) }}" class="btn btn-action btn-action-edit" title="Edit Testimonial"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <form action="{{ route('admin.testimonials.destroy', $t) }}" method="POST" onsubmit="return confirm('Delete this testimonial?');" class="d-inline m-0">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger" title="Delete"><i class="bi bi-trash"></i></button>
+                                    <button type="submit" class="btn btn-action btn-action-delete" title="Delete Testimonial"><i class="fa-regular fa-trash-can"></i></button>
                                 </form>
                             </div>
                         </td>

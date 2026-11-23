@@ -165,21 +165,21 @@
                             <span class="status-pill status-{{ $apt->status }}">{{ $apt->status }}</span>
                         </td>
                         <td class="text-end">
-                            <div class="btn-group btn-group-sm">
-                                <a href="{{ route('admin.appointments.show', $apt) }}" class="btn btn-outline-secondary" style="height:28px; padding:0 8px;" title="View Details">
+                            <div class="d-inline-flex align-items-center gap-2">
+                                <a href="{{ route('admin.appointments.show', $apt) }}" class="btn btn-action btn-action-view" title="View Details">
                                     <i class="fa-regular fa-eye"></i>
                                 </a>
-                                <form action="{{ route('admin.appointments.toggle-read', $apt) }}" method="POST" class="d-inline">
+                                <form action="{{ route('admin.appointments.toggle-read', $apt) }}" method="POST" class="d-inline m-0">
                                     @csrf
                                     @method('PATCH')
-                                    <button type="submit" class="btn btn-outline-secondary" style="height:28px; padding:0 8px;" title="{{ $apt->is_read ? 'Mark Unread' : 'Mark Read' }}">
+                                    <button type="submit" class="btn btn-action btn-action-email" title="{{ $apt->is_read ? 'Mark Unread' : 'Mark Read' }}">
                                         <i class="fa-regular {{ $apt->is_read ? 'fa-envelope' : 'fa-envelope-open' }}"></i>
                                     </button>
                                 </form>
-                                <form action="{{ route('admin.appointments.destroy', $apt) }}" method="POST" onsubmit="return confirm('Delete this appointment permanently?');" class="d-inline">
+                                <form action="{{ route('admin.appointments.destroy', $apt) }}" method="POST" onsubmit="return confirm('Delete this appointment permanently?');" class="d-inline m-0">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger" style="height:28px; padding:0 8px;" title="Delete">
+                                    <button type="submit" class="btn btn-action btn-action-delete" title="Delete Appointment">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>
                                 </form>
