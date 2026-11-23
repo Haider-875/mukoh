@@ -299,25 +299,51 @@
    ======================================================== */
 
 /* 1. Featured Tire Cards (Home Page) */
+.product-card {
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
 .price-row {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 16px !important;
-  margin-top: 28px !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-top: 24px !important;
   width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.price-row .price-wrap {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+
+.price-row .price-wrap span {
+  font-size: 8px !important;
+  letter-spacing: 0.15em !important;
+  color: #777 !important;
 }
 
 .price-row strong {
-  font-size: 32px !important;
+  font-size: 26px !important;
   line-height: 1 !important;
   color: #111 !important;
 }
 
 .price-row .quote-button {
-  min-width: 140px !important;
-  height: 44px !important;
-  padding: 0 24px !important;
+  width: auto !important;
+  min-width: 105px !important;
+  max-width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 16px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -325,7 +351,7 @@
   background: #111 !important;
   color: #fff !important;
   border: 1px solid #111 !important;
-  font-size: 11px !important;
+  font-size: 10.5px !important;
   font-weight: 800 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
@@ -333,6 +359,8 @@
   cursor: pointer !important;
   transition: all 0.25s ease !important;
   flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+  margin-left: auto !important;
 }
 
 .price-row .quote-button:hover {
@@ -459,39 +487,132 @@
   box-shadow: 0 0 0 2px #000, 0 0 0 4px var(--red, #ef3b2d) !important;
 }
 
-/* 3. Service Cards (Home Page) */
+/* 3. Service Cards (Home Page & Services Page) */
 .service-card {
+  position: relative !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+  min-height: 400px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  background: linear-gradient(180deg, #131316 0%, #0a0a0c 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 4px !important;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
 }
 
-.service-card .service-card-btn {
+.service-card:hover {
+  border-color: rgba(239, 59, 45, 0.6) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(239, 59, 45, 0.15) !important;
+}
+
+.service-card .service-image.transparent-service-visual {
   width: 100% !important;
-  min-height: 44px !important;
-  margin-top: 20px !important;
+  height: 130px !important;
+  margin: 0 !important;
+  padding: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  background: radial-gradient(circle at center, rgba(239, 59, 45, 0.08) 0%, transparent 70%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+
+.service-card .service-image.transparent-service-visual svg {
+  width: 50px !important;
+  height: 50px !important;
+  color: #ef3b2d !important;
+  filter: drop-shadow(0 0 10px rgba(239, 59, 45, 0.4)) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.service-card:hover .service-image.transparent-service-visual svg {
+  transform: scale(1.08) rotate(6deg) !important;
+}
+
+.service-card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  justify-content: space-between !important;
+  padding: 22px !important;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.service-card-body h3 {
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+  line-height: 1.3 !important;
+  max-width: 100% !important;
+}
+
+.service-card-body p {
+  margin: 0 0 20px 0 !important;
+  padding: 0 !important;
+  font-size: 12.5px !important;
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+  flex-grow: 1 !important;
+  max-width: 100% !important;
+}
+
+/* Service Card Button - perfectly contained inside the card */
+.service-card .service-card-btn,
+.service-card-body .service-card-btn {
+  margin: auto 0 0 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  min-height: 42px !important;
+  height: 42px !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
   text-align: center !important;
-  padding: 0 20px !important;
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  color: #fff !important;
+  color: #ffffff !important;
   font-size: 11px !important;
   font-weight: 800 !important;
   letter-spacing: 0.14em !important;
   text-transform: uppercase !important;
-  border-radius: 0 !important;
+  border-radius: 2px !important;
   text-decoration: none !important;
   transition: all 0.25s ease !important;
 }
 
-.service-card .service-card-btn:hover {
+.service-card .service-card-btn:hover,
+.service-card-body .service-card-btn:hover {
   background: var(--red, #ef3b2d) !important;
   border-color: var(--red, #ef3b2d) !important;
   color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(239, 59, 45, 0.4) !important;
   transform: translateY(-2px) !important;
+}
+
+/* Safeguard against any direct legacy selector leaking horizontal margins */
+.service-card > a.service-card-btn {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  margin-bottom: 20px !important;
+  width: calc(100% - 40px) !important;
+  max-width: calc(100% - 40px) !important;
+  box-sizing: border-box !important;
 }
 
 /* 4. Service Detail Cards (Services Page) */
@@ -552,7 +673,19 @@
   box-sizing: border-box !important;
 }
 
-/* 5. Mobile Responsiveness */
+/* 5. Mobile & Tablet Responsiveness */
+@media (max-width: 1200px) {
+  .price-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .price-row .quote-button {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
 @media (max-width: 767.98px) {
   .price-row {
     flex-direction: column !important;
@@ -605,5 +738,312 @@
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+  }
+}
+
+/* ========================================================
+   6. VERIFIED REVIEWS - VERTICAL CONTINUOUS TICKER & CARDS
+   ======================================================== */
+
+.testimonials-section {
+  position: relative;
+  background: #09090b !important;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.reviews-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.reviews-trust-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+}
+
+.reviews-trust-pill .rating-stars i {
+  color: #f59e0b;
+  margin-right: 2px;
+  font-size: 13px;
+}
+
+/* Play/Pause Button */
+.review-play-pause-btn {
+  background: #15151c;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.review-play-pause-btn:hover {
+  background: var(--red, #ef3b2d);
+  border-color: var(--red, #ef3b2d);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(239, 59, 45, 0.35);
+}
+
+/* Status Indicator */
+.review-status-badge {
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  color: #4ade80;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.status-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+  animation: statusPulse 1.8s infinite;
+}
+
+.review-status-badge.status-paused {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+}
+
+.review-status-badge.status-paused .status-paused-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+@keyframes statusPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* Vertical Container */
+.reviews-vertical-container {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  margin-top: 36px;
+}
+
+.reviews-vignette {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 70px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.reviews-vignette-top {
+  top: 0;
+  background: linear-gradient(180deg, #09090b 0%, rgba(9, 9, 11, 0) 100%);
+}
+
+.reviews-vignette-bottom {
+  bottom: 0;
+  background: linear-gradient(0deg, #09090b 0%, rgba(9, 9, 11, 0) 100%);
+}
+
+/* 3-Column Viewport */
+.reviews-vertical-viewport {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  height: 100%;
+}
+
+.reviews-column {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.reviews-track {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  will-change: transform;
+}
+
+/* Infinite Vertical Animations */
+@keyframes verticalScrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.col-track-1 .reviews-track {
+  animation: verticalScrollUp 38s linear infinite;
+}
+
+.col-track-2 .reviews-track {
+  animation: verticalScrollUp 48s linear infinite;
+}
+
+.col-track-3 .reviews-track {
+  animation: verticalScrollUp 42s linear infinite;
+}
+
+/* Pause on hover or via button */
+.reviews-vertical-viewport:hover .reviews-track,
+.reviews-vertical-viewport.is-paused .reviews-track {
+  animation-play-state: paused !important;
+}
+
+/* Modern Automotive Review Card */
+.mukoh-review-card {
+  background: linear-gradient(145deg, #13131a 0%, #0c0c10 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 24px;
+  position: relative;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  box-sizing: border-box;
+}
+
+.mukoh-review-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(239, 59, 45, 0.45);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 15px rgba(239, 59, 45, 0.12);
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1c1518;
+  border: 1.5px solid rgba(239, 59, 45, 0.45);
+  color: var(--red, #ef3b2d);
+  font-weight: 800;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.review-author strong {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.review-check {
+  font-size: 13px;
+}
+
+.review-location {
+  font-size: 11px;
+  color: #94a3b8 !important;
+}
+
+.stars-gold i {
+  color: #f59e0b;
+  font-size: 12px;
+  margin-right: 1px;
+}
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.rating-num {
+  font-size: 11px;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.rating-sub {
+  font-size: 9px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.review-vehicle-pill {
+  display: inline-flex;
+  align-items: center;
+  margin: 14px 0 12px;
+  padding: 5px 10px;
+  background: rgba(239, 59, 45, 0.08);
+  border: 1px solid rgba(239, 59, 45, 0.22);
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #ff766b;
+  letter-spacing: 0.04em;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #cbd5e1;
+  margin: 0 0 16px;
+  font-weight: 400;
+}
+
+.review-card-foot {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+}
+
+.review-verified-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.review-quote-mark {
+  color: rgba(255, 255, 255, 0.12);
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Responsive Columns */
+@media (max-width: 991.98px) {
+  .reviews-vertical-viewport {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .col-track-3 {
+    display: none;
+  }
+  .reviews-vertical-container {
+    height: 520px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .reviews-vertical-viewport {
+    grid-template-columns: 1fr;
+  }
+  .col-track-2, .col-track-3 {
+    display: none;
+  }
+  .reviews-vertical-container {
+    height: 480px;
   }
 }

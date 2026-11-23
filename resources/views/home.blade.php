@@ -149,11 +149,14 @@
                     <path d="M32 11v8M32 45v8M11 32h8M45 32h8M17 17l6 6M41 41l6 6M47 17l-6 6M23 41l-6 6"></path>
                   </svg>
                 </div>
-                <h3>{{ $srv->title }}</h3>
-                <p>{{ $srv->short_description }}</p>
-                <a href="{{ $srv->action_link }}" class="service-card-btn">
-                  {{ trim(str_replace(['↗', '→'], '', $srv->action_text ?? 'EXPLORE SERVICE')) }}
-                </a>
+                <div class="service-card-body">
+                  <h3>{{ $srv->title }}</h3>
+                  <p>{{ $srv->short_description }}</p>
+                  <a href="{{ $srv->action_link }}" class="service-card-btn">
+                    <span>{{ trim(str_replace(['↗', '→'], '', $srv->action_text ?? 'EXPLORE SERVICE')) }}</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="ms-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
               </article>
             </div>
           @endforeach
@@ -203,8 +206,10 @@
               @endif
 
               <div class="price-row">
-                <span>FROM</span>
-                <strong>${{ number_format($product->price, 0) }}</strong>
+                <div class="price-wrap">
+                  <span>FROM</span>
+                  <strong>${{ number_format($product->price, 0) }}</strong>
+                </div>
                 <button class="quote-button border-0 bg-transparent" type="button">GET QUOTE</button>
               </div>
             </article>
@@ -270,23 +275,65 @@
       </div>
     </section>
 
-    <!-- 6. Testimonials Section -->
-    <section class="content-section testimonials-section">
+    <!-- 6. Testimonials Section (Vertical Continuous Ticker with Play/Pause) -->
+    <section class="content-section testimonials-section" id="reviews">
       <div class="container-fluid px-3 px-md-4 px-xl-5">
-        <div class="micro-label reveal testimonial-label">TESTIMONIALS</div>
-        <h2 class="section-title reveal">WHAT <span>CUSTOMERS SAY</span></h2>
-
-        <div class="row g-3 mt-4">
-          @foreach($testimonials as $test)
-            <div class="col-md-6 col-xl-4">
-              <blockquote class="quote-card reveal">
-                <div class="stars">★★★★★</div>
-                <p>“{{ $test->content }}”</p>
-                <footer>{{ $test->author_name }}</footer>
-              </blockquote>
+        
+        <div class="reviews-header d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-4 pb-3">
+          <div>
+            <div class="micro-label reveal testimonial-label">VERIFIED DRIVER REVIEWS</div>
+            <h2 class="section-title reveal">WHAT <span>CUSTOMERS SAY</span></h2>
+            <div class="reviews-trust-pill d-inline-flex align-items-center gap-2 mt-3 px-3 py-2 rounded-pill">
+              <span class="rating-stars text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+              <strong class="text-white">4.9 / 5.0</strong>
+              <span class="text-secondary">• Based on 380+ Verified Local Drivers across Baltimore &amp; MD</span>
             </div>
-          @endforeach
+          </div>
+
+          <div class="reviews-controls d-flex align-items-center gap-3">
+            <div id="reviewScrollStatus" class="review-status-badge d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill">
+              <span class="status-pulse-dot"></span>
+              <span class="status-text">LIVE SCROLLING</span>
+            </div>
+
+            <button id="reviewPlayPauseBtn" class="review-play-pause-btn d-inline-flex align-items-center gap-2" type="button" aria-label="Toggle Reviews Auto-scroll">
+              <i class="bi bi-pause-fill status-icon"></i>
+              <span class="btn-label">PAUSE</span>
+            </button>
+          </div>
         </div>
+
+        @php
+          $colCount = 3;
+          $cols = [[], [], []];
+          foreach($testimonials as $i => $test) {
+              $cols[$i % $colCount][] = $test;
+          }
+        @endphp
+
+        <div class="reviews-vertical-container">
+          <!-- Top & Bottom smooth gradient masks -->
+          <div class="reviews-vignette reviews-vignette-top"></div>
+          <div class="reviews-vignette reviews-vignette-bottom"></div>
+
+          <div class="reviews-vertical-viewport" id="reviewsViewport">
+            @foreach($cols as $colIdx => $colItems)
+              <div class="reviews-column col-track-{{ $colIdx + 1 }}">
+                <div class="reviews-track">
+                  <!-- First set -->
+                  @foreach($colItems as $item)
+                    @include('partials.review-card', ['item' => $item])
+                  @endforeach
+                  <!-- Seamless duplicate loop -->
+                  @foreach($colItems as $item)
+                    @include('partials.review-card', ['item' => $item])
+                  @endforeach
+                </div>
+              </div>
+            @endforeach
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -340,5 +387,37 @@
         }
       }, 70);
     })();
+
+    // Reviews Vertical Auto-scroll Play/Pause Controller
+    document.addEventListener('DOMContentLoaded', () => {
+      const playPauseBtn = document.getElementById('reviewPlayPauseBtn');
+      const viewport = document.getElementById('reviewsViewport');
+      const statusBadge = document.getElementById('reviewScrollStatus');
+
+      if (playPauseBtn && viewport) {
+        let isPaused = false;
+
+        playPauseBtn.addEventListener('click', () => {
+          isPaused = !isPaused;
+          if (isPaused) {
+            viewport.classList.add('is-paused');
+            playPauseBtn.innerHTML = '<i class="bi bi-play-fill status-icon me-1"></i><span class="btn-label">RESUME</span>';
+            playPauseBtn.setAttribute('aria-label', 'Resume Auto-scroll');
+            if (statusBadge) {
+              statusBadge.classList.add('status-paused');
+              statusBadge.innerHTML = '<span class="status-paused-dot"></span><span class="status-text">PAUSED</span>';
+            }
+          } else {
+            viewport.classList.remove('is-paused');
+            playPauseBtn.innerHTML = '<i class="bi bi-pause-fill status-icon me-1"></i><span class="btn-label">PAUSE</span>';
+            playPauseBtn.setAttribute('aria-label', 'Pause Auto-scroll');
+            if (statusBadge) {
+              statusBadge.classList.remove('status-paused');
+              statusBadge.innerHTML = '<span class="status-pulse-dot"></span><span class="status-text">LIVE SCROLLING</span>';
+            }
+          }
+        });
+      }
+    });
   </script>
 @endpush
