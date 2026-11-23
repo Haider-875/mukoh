@@ -477,6 +477,26 @@
       background-color: rgba(255, 255, 255, 0.03) !important;
     }
 
+    /* Text Contrast & Readability */
+    .text-secondary,
+    .text-muted,
+    .text-body-secondary,
+    .text-dim {
+      color: #94a3b8 !important;
+    }
+    .text-white-dim {
+      color: #cbd5e1 !important;
+    }
+    .text-info {
+      color: #38bdf8 !important;
+    }
+    .text-success {
+      color: #4ade80 !important;
+    }
+    .text-warning {
+      color: #facc15 !important;
+    }
+
     /* Buttons (Sleek Compact Size) */
     .btn {
       font-size: 11.5px !important;
@@ -512,13 +532,89 @@
     }
     .btn-outline-secondary {
       border-color: var(--admin-border) !important;
-      color: var(--admin-text-muted) !important;
-      background: rgba(255, 255, 255, 0.02) !important;
+      color: #cbd5e1 !important;
+      background: rgba(255, 255, 255, 0.03) !important;
     }
     .btn-outline-secondary:hover {
-      background: rgba(255, 255, 255, 0.08) !important;
+      background: rgba(255, 255, 255, 0.09) !important;
       color: #ffffff !important;
-      border-color: rgba(255, 255, 255, 0.2) !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+    }
+
+    /* Universal Action Button Gap & Distinct Styles */
+    .btn-group,
+    .action-btn-group,
+    .table-actions {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+    }
+    .btn-group > .btn,
+    .btn-group > form,
+    .btn-group > form > .btn,
+    .action-btn-group > .btn,
+    .action-btn-group > form,
+    .action-btn-group > form > .btn {
+      margin: 0 !important;
+      border-radius: 5px !important;
+      flex-shrink: 0 !important;
+    }
+    .btn-action {
+      width: 29px !important;
+      height: 29px !important;
+      padding: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 5px !important;
+      font-size: 11.5px !important;
+      line-height: 1 !important;
+      transition: all 0.16s ease !important;
+      border: 1px solid transparent !important;
+    }
+    .btn-action-view {
+      color: #38bdf8 !important;
+      background: rgba(56, 189, 248, 0.1) !important;
+      border-color: rgba(56, 189, 248, 0.3) !important;
+    }
+    .btn-action-view:hover {
+      background: rgba(56, 189, 248, 0.25) !important;
+      border-color: #38bdf8 !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+    .btn-action-edit {
+      color: #facc15 !important;
+      background: rgba(250, 204, 21, 0.1) !important;
+      border-color: rgba(250, 204, 21, 0.3) !important;
+    }
+    .btn-action-edit:hover {
+      background: rgba(250, 204, 21, 0.25) !important;
+      border-color: #facc15 !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+    .btn-action-email {
+      color: #cbd5e1 !important;
+      background: rgba(148, 163, 184, 0.1) !important;
+      border-color: rgba(148, 163, 184, 0.3) !important;
+    }
+    .btn-action-email:hover {
+      background: rgba(148, 163, 184, 0.25) !important;
+      border-color: #f1f5f9 !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+    .btn-action-delete {
+      color: #f87171 !important;
+      background: rgba(239, 68, 68, 0.1) !important;
+      border-color: rgba(239, 68, 68, 0.3) !important;
+    }
+    .btn-action-delete:hover {
+      background: rgba(239, 68, 68, 0.25) !important;
+      border-color: #ef4444 !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
     }
 
     /* Form Controls */
@@ -540,7 +636,7 @@
     .form-label {
       font-size: 11px !important;
       font-weight: 600 !important;
-      color: var(--admin-text-muted) !important;
+      color: #cbd5e1 !important;
       margin-bottom: 5px !important;
       letter-spacing: 0.02em;
     }
@@ -550,22 +646,38 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 2px 7px;
+      padding: 2.5px 8px;
       font-size: 9.5px;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       border-radius: 4px;
+      background: rgba(148, 163, 184, 0.12);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.3);
     }
-    .status-pending { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
-    .status-confirmed, .status-contacted { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
-    .status-completed { background: rgba(74, 222, 128, 0.12); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); }
-    .status-cancelled { background: rgba(248, 113, 113, 0.12); color: #f87171; border: 1px solid rgba(248, 113, 113, 0.3); }
+    .status-pending, .status-unread { background: rgba(234, 179, 8, 0.14) !important; color: #fde047 !important; border: 1px solid rgba(234, 179, 8, 0.4) !important; }
+    .status-new { background: rgba(239, 59, 45, 0.14) !important; color: #fca5a5 !important; border: 1px solid rgba(239, 59, 45, 0.4) !important; }
+    .status-confirmed, .status-contacted, .status-replied { background: rgba(56, 189, 248, 0.14) !important; color: #7dd3fc !important; border: 1px solid rgba(56, 189, 248, 0.4) !important; }
+    .status-completed, .status-read { background: rgba(74, 222, 128, 0.14) !important; color: #86efac !important; border: 1px solid rgba(74, 222, 128, 0.4) !important; }
+    .status-cancelled, .status-closed { background: rgba(248, 113, 113, 0.14) !important; color: #fca5a5 !important; border: 1px solid rgba(248, 113, 113, 0.4) !important; }
 
     .badge {
-      font-weight: 600;
-      font-size: 10px;
-      padding: 3px 6px;
+      font-weight: 700 !important;
+      font-size: 10px !important;
+      padding: 3px 7px !important;
+      letter-spacing: 0.03em !important;
+    }
+    .badge.bg-secondary,
+    .badge.text-secondary {
+      background: rgba(148, 163, 184, 0.16) !important;
+      color: #cbd5e1 !important;
+      border: 1px solid rgba(148, 163, 184, 0.35) !important;
+    }
+    .badge.bg-dark {
+      background: #181824 !important;
+      color: #f1f5f9 !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
     }
 
     /* User Profile Dropdown in Topbar */
