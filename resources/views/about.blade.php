@@ -46,21 +46,21 @@
             <div class="cap-row">
               <span class="num">01</span>
               <div>
-                <h3>Safety First Approach <span>↗</span></h3>
+                <h3>Safety First Approach</h3>
                 <p>We treat every wheel mounting and balancing with the highest safety standards to protect you and your family.</p>
               </div>
             </div>
             <div class="cap-row">
               <span class="num">02</span>
               <div>
-                <h3>No Hidden Charges <span>↗</span></h3>
+                <h3>No Hidden Charges</h3>
                 <p>Transparent upfront quotes on all new tires, used tires, valve services, and disposal fees.</p>
               </div>
             </div>
             <div class="cap-row">
               <span class="num">03</span>
               <div>
-                <h3>State-Of-The-Art Equipment <span>↗</span></h3>
+                <h3>State-Of-The-Art Equipment</h3>
                 <p>Precision computerized wheel balancing and rim-guard tire changers to safeguard your alloy wheels.</p>
               </div>
             </div>
@@ -86,7 +86,6 @@
                 <h3>Quality Tire Selection</h3>
                 <p>New and used tire options matched to your vehicle, your budget and your driving needs.</p>
               </div>
-              <b>↗</b>
             </div>
             <div class="difference-row reveal">
               <span>02</span>
@@ -94,7 +93,6 @@
                 <h3>Fast Professional Service</h3>
                 <p>Mounting, balancing, repair and inspection handled carefully so you get back on the road quickly.</p>
               </div>
-              <b>↗</b>
             </div>
             <div class="difference-row reveal">
               <span>03</span>
@@ -102,7 +100,6 @@
                 <h3>Honest Local Support</h3>
                 <p>Straightforward help, competitive pricing and a team focused on practical solutions.</p>
               </div>
-              <b>↗</b>
             </div>
           </div>
         </div>

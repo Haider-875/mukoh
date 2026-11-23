@@ -55,7 +55,7 @@
                 <div class="service-price">{{ $srv->price_starting_at }}</div>
               </div>
               <a class="dark-btn" href="{{ route('contact') }}?service={{ urlencode($srv->title) }}" style="background:#ef3b2d;color:#111!important">
-                Book Now ↗
+                Book Now
               </a>
             </aside>
           </article>
@@ -137,7 +137,7 @@
         <div class="col-lg-4">
           <p>Most common tire needs can be handled promptly. Contact the shop for availability and a quote.</p>
           <div class="d-flex gap-2">
-            <a class="dark-btn" href="{{ route('contact') }}">Book Online ↗</a>
+            <a class="dark-btn" href="{{ route('contact') }}">Book Online</a>
             <a class="dark-btn" href="tel:{{ $settings['phone_raw'] ?? '+12408540273' }}">Call Now</a>
           </div>
         </div>
@@ -161,7 +161,6 @@
                 <h3>Quality Tire Selection</h3>
                 <p>New and used tire options matched to your vehicle, your budget and your driving needs.</p>
               </div>
-              <b>↗</b>
             </div>
             <div class="difference-row reveal">
               <span>02</span>
@@ -169,7 +168,6 @@
                 <h3>Fast Professional Service</h3>
                 <p>Mounting, balancing, repair and inspection handled carefully so you get back on the road quickly.</p>
               </div>
-              <b>↗</b>
             </div>
             <div class="difference-row reveal">
               <span>03</span>
@@ -177,7 +175,6 @@
                 <h3>Honest Local Support</h3>
                 <p>Straightforward help, competitive pricing and a team focused on practical solutions.</p>
               </div>
-              <b>↗</b>
             </div>
           </div>
         </div>

@@ -92,7 +92,7 @@
             <span class="sound-label">SOUND ON</span>
           </button>
 
-          <a class="btn btn-accent" href="{{ route('contact') }}">Book Appointment <span>↗</span></a>
+          <a class="btn btn-accent" href="{{ route('contact') }}">Book Appointment</a>
         </div>
       </div>
     </nav>
@@ -121,7 +121,7 @@
           </div>
           <span class="sound-label">SOUND ON</span>
         </button>
-        <a class="btn btn-accent w-100" href="{{ route('contact') }}">Book Appointment ↗</a>
+        <a class="btn btn-accent w-100" href="{{ route('contact') }}">Book Appointment</a>
       </div>
     </div>
   </div>
@@ -269,7 +269,7 @@
           <textarea id="quoteMessage" name="message" rows="2" placeholder="Tell us if you need 2 or 4 tires, installation, etc."></textarea>
         </div>
 
-        <button type="submit" class="submit-btn w-100">SUBMIT QUOTE REQUEST ↗</button>
+        <button type="submit" class="submit-btn w-100">SUBMIT QUOTE REQUEST</button>
       </form>
     </div>
   </div>
@@ -308,15 +308,15 @@
         });
       }
 
-      // Intercept any quote-button or quote-main-link clicks to open modal
-      document.querySelectorAll('.quote-button, .quote-main-link').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const card = btn.closest('.product-card, .tire-card');
-          const title = card ? card.querySelector('h3')?.textContent?.trim() : '';
-          const size = card ? card.querySelector('.tire-size')?.textContent?.trim() : '';
-          e.preventDefault();
-          window.openQuoteModal(title, size);
-        });
+      // Universal quote button click handler using event delegation
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.quote-button, .quote-main-link, [data-open-quote]');
+        if (!btn) return;
+        e.preventDefault();
+        const card = btn.closest('.product-card, .tire-card');
+        const title = btn.dataset.tire || (card ? card.querySelector('h3')?.textContent?.trim() : '');
+        const size = btn.dataset.size || (card ? card.querySelector('.tire-size')?.textContent?.trim() : '');
+        window.openQuoteModal(title, size);
       });
     });
   </script>

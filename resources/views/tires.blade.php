@@ -120,9 +120,15 @@
               <div class="tire-bottom">
                 <div class="tire-price">
                   <small>From</small>
-                  <strong>${{ number_format($tire->price, 0) }}</strong>{{ $tire->price_unit ?? '/ea' }}
+                  <div class="price-val">
+                    <strong>${{ number_format($tire->price, 0) }}</strong>
+                    <span class="unit">{{ $tire->price_unit ?? '/ea' }}</span>
+                  </div>
                 </div>
-                <button class="link-arrow quote-button border-0 bg-transparent p-0" type="button">Quote ↗</button>
+                <button class="quote-button" type="button" data-tire="{{ $tire->name }}" data-size="{{ $tire->size }}" aria-label="Request quote for {{ $tire->name }}">
+                  <span>GET QUOTE</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </button>
               </div>
             </div>
           </article>
@@ -142,7 +148,7 @@
         <div class="col-lg-4">
           <p>Tell us your vehicle or tire size and our team can help you narrow down a suitable option.</p>
           <div class="d-flex gap-2">
-            <a class="dark-btn" href="{{ route('contact') }}">Contact Us ↗</a>
+            <a class="dark-btn" href="{{ route('contact') }}">Contact Us</a>
           </div>
         </div>
       </div>

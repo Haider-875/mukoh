@@ -1,6 +1,6 @@
 import './sound-effects';
 import './form-handler';
-import './three-tire';
+import './frame-animator';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Header scroll state & back to top

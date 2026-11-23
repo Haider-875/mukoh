@@ -54,7 +54,7 @@
                 <h3>{{ $settings['hero_quick_title'] ?? 'Get back on the road.' }}</h3>
                 <p>{{ $settings['hero_quick_copy'] ?? 'New and used tires from practical everyday options to premium road ready setups.' }}</p>
                 <div class="d-flex flex-wrap gap-2 mt-3">
-                  <a class="btn btn-light-pill" href="{{ route('tires') }}">View Tires <span>→</span></a>
+                  <a class="btn btn-light-pill" href="{{ route('tires') }}">View Tires</a>
                   <a class="btn btn-glass-pill" href="tel:{{ $settings['phone_raw'] ?? '+12408540273' }}">Call Now</a>
                 </div>
               </div>
@@ -90,7 +90,7 @@
               {{ $settings['cap_description'] ?? 'From budget friendly used tires to all season and all terrain options, Mukoh helps match the tire to your vehicle, driving style and budget.' }}
             </p>
             <div class="d-flex flex-wrap gap-2 mt-4 reveal" style="--delay:410ms">
-              <a class="btn btn-light-pill" href="{{ route('tires') }}">Browse Tires <span>→</span></a>
+              <a class="btn btn-light-pill" href="{{ route('tires') }}">Browse Tires</a>
               <button class="btn btn-glass-pill quote-main-link" type="button">Get a Quote</button>
             </div>
           </div>
@@ -100,21 +100,21 @@
               <div class="cap-row">
                 <span class="num">01</span>
                 <div>
-                  <h3>Road Grip <span>↗</span></h3>
+                  <h3>Road Grip</h3>
                   <p>Tread patterns selected for stable contact and dependable traction.</p>
                 </div>
               </div>
               <div class="cap-row">
                 <span class="num">02</span>
                 <div>
-                  <h3>Layered Strength <span>↗</span></h3>
+                  <h3>Layered Strength</h3>
                   <p>Internal structure designed to manage load, impact and daily road stress.</p>
                 </div>
               </div>
               <div class="cap-row">
                 <span class="num">03</span>
                 <div>
-                  <h3>Right Fit <span>↗</span></h3>
+                  <h3>Right Fit</h3>
                   <p>Options across common sizes and vehicle types, with practical guidance.</p>
                 </div>
               </div>
@@ -151,8 +151,8 @@
                 </div>
                 <h3>{{ $srv->title }}</h3>
                 <p>{{ $srv->short_description }}</p>
-                <a href="{{ $srv->action_link }}">
-                  {{ $srv->action_text ?? 'Explore ↗' }}
+                <a href="{{ $srv->action_link }}" class="service-card-btn">
+                  {{ trim(str_replace(['↗', '→'], '', $srv->action_text ?? 'EXPLORE SERVICE')) }}
                 </a>
               </article>
             </div>
@@ -229,7 +229,6 @@
                   <h3>Expert Technicians</h3>
                   <p>Experienced hands focused on doing the job correctly and efficiently.</p>
                 </div>
-                <b>↗</b>
               </div>
               <div class="difference-row reveal">
                 <span>02</span>
@@ -237,7 +236,6 @@
                   <h3>Competitive Pricing</h3>
                   <p>Useful choices across price points without losing sight of safety.</p>
                 </div>
-                <b>↗</b>
               </div>
               <div class="difference-row reveal">
                 <span>03</span>
@@ -245,7 +243,6 @@
                   <h3>Fast Turnaround</h3>
                   <p>Service designed to get you moving again with less waiting.</p>
                 </div>
-                <b>↗</b>
               </div>
             </div>
           </div>
@@ -308,7 +305,7 @@
           <div class="col-lg-4">
             <p class="reveal">Call Mukoh Tires to check availability, ask about sizes or schedule tire service.</p>
             <div class="d-flex flex-wrap gap-2 mt-4 reveal">
-              <a class="btn btn-dark-pill" href="tel:{{ $settings['phone_raw'] ?? '+12408540273' }}">{{ $settings['phone_display'] ?? '(240) 854-0273' }} ↗</a>
+              <a class="btn btn-dark-pill" href="tel:{{ $settings['phone_raw'] ?? '+12408540273' }}">{{ $settings['phone_display'] ?? '(240) 854-0273' }}</a>
               <a class="btn btn-outline-dark-pill" href="mailto:{{ $settings['email'] ?? 'mukohtires@gmail.com' }}?subject=Mukoh%20Tires%20Website%20Inquiry">Email Us</a>
             </div>
           </div>

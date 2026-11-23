@@ -2,6 +2,17 @@
    Mukoh Custom Enhancements: Audio, Modals, 3D & Polish
    ======================================================== */
 
+#frameCanvas {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+#frameStage {
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
 /* 1. Celebration Modal */
 .celebration-modal-overlay {
   position: fixed;
@@ -280,4 +291,246 @@
 
 .frame-stage {
   pointer-events: none;
+}
+
+
+/* ========================================================
+   Card Button Width & Dimension Styling
+   ======================================================== */
+
+/* 1. Featured Tire Cards (Home Page) */
+.price-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  margin-top: 28px !important;
+  width: 100% !important;
+}
+
+.price-row strong {
+  font-size: 32px !important;
+  line-height: 1 !important;
+  color: #111 !important;
+}
+
+.price-row .quote-button {
+  min-width: 140px !important;
+  height: 44px !important;
+  padding: 0 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background: #111 !important;
+  color: #fff !important;
+  border: 1px solid #111 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.price-row .quote-button:hover {
+  background: var(--red, #ef3b2d) !important;
+  border-color: var(--red, #ef3b2d) !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 2. Catalog Tire Cards (Tires Page) */
+.tire-bottom {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  border-top: 1px solid var(--line, rgba(255, 255, 255, 0.12)) !important;
+  padding-top: 18px !important;
+  margin-top: auto !important;
+  width: 100% !important;
+}
+
+.tire-bottom .tire-price {
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.tire-bottom .tire-price small {
+  display: block !important;
+  font-size: 8px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #777 !important;
+  margin-bottom: 4px !important;
+  font-weight: 700 !important;
+}
+
+.tire-bottom .tire-price .price-val {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 3px !important;
+}
+
+.tire-bottom .tire-price strong {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1 !important;
+}
+
+.tire-bottom .tire-price .unit {
+  font-size: 11px !important;
+  color: #888892 !important;
+  font-weight: 600 !important;
+}
+
+/* Premium Automotive Quote Button on Tires Catalog */
+.tire-bottom .quote-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 0 16px !important;
+  min-width: unset !important;
+  background: rgba(239, 59, 45, 0.08) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(239, 59, 45, 0.45) !important;
+  border-radius: 3px !important;
+  font-family: inherit !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  outline: none !important;
+  flex-shrink: 0 !important;
+}
+
+.tire-bottom .quote-button span {
+  display: inline-block !important;
+  line-height: 1 !important;
+  color: #ffffff !important;
+  transition: color 0.2s ease !important;
+}
+
+.tire-bottom .quote-button svg {
+  display: inline-block !important;
+  stroke: var(--red, #ef3b2d) !important;
+  transition: transform 0.22s ease, stroke 0.22s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.tire-bottom .quote-button:hover {
+  background: var(--red, #ef3b2d) !important;
+  border-color: var(--red, #ef3b2d) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(239, 59, 45, 0.42) !important;
+}
+
+.tire-bottom .quote-button:hover span {
+  color: #ffffff !important;
+}
+
+.tire-bottom .quote-button:hover svg {
+  transform: translate(2px, -2px) !important;
+  stroke: #ffffff !important;
+}
+
+.tire-bottom .quote-button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 6px rgba(239, 59, 45, 0.3) !important;
+}
+
+.tire-bottom .quote-button:focus-visible {
+  box-shadow: 0 0 0 2px #000, 0 0 0 4px var(--red, #ef3b2d) !important;
+}
+
+/* 3. Service Cards (Home Page) */
+.service-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.service-card .service-card-btn {
+  width: 100% !important;
+  min-height: 44px !important;
+  margin-top: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 20px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  border-radius: 0 !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.service-card .service-card-btn:hover {
+  background: var(--red, #ef3b2d) !important;
+  border-color: var(--red, #ef3b2d) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 4. Service Detail Cards (Services Page) */
+.service-detail-side .dark-btn {
+  width: 100% !important;
+  min-width: 150px !important;
+  min-height: 44px !important;
+  padding: 0 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  border-radius: 3px !important;
+}
+
+/* 5. Mobile Responsiveness */
+@media (max-width: 767.98px) {
+  .price-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .price-row .quote-button {
+    width: 100% !important;
+  }
+  .tire-bottom {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+  .tire-bottom .quote-button {
+    width: auto !important;
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 0 14px !important;
+    font-size: 9px !important;
+  }
 }
