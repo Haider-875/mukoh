@@ -1,0 +1,26 @@
+[package]
+name = "haider-875/mukoh"
+version = "1.0.0"
+description = "MUKOH Tires - Laravel Application"
+
+[dependencies]
+"php/php" = "^8.3"
+
+[fs]
+"/app" = "."
+
+[[command]]
+name = "run"
+module = "php/php:php"
+runner = "wasi"
+
+[command.annotations.wasi]
+main-args = ["-t", "/app/public", "-S", "0.0.0.0:8080"]
+env = [
+  "APP_NAME=MUKOH TIRES",
+  "APP_ENV=production",
+  "APP_KEY=base64:bW1X54LPQUCzjftKBU6HwZjlWWaFa91WRuwRhRouLQg=",
+  "APP_DEBUG=false",
+  "DB_CONNECTION=sqlite",
+  "DB_DATABASE=/app/database/database.sqlite"
+]
